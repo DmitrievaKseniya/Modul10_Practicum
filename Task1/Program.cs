@@ -15,7 +15,7 @@ namespace Task1
                     x = Int32.Parse(Console.ReadLine());
                     break;
                 }
-                catch (Exception ex)
+                catch
                 {
                     Console.WriteLine("Введено не корректное значение\n");
                 }
@@ -29,7 +29,7 @@ namespace Task1
                     y = Int32.Parse(Console.ReadLine());
                     break;
                 }
-                catch (Exception ex)
+                catch
                 {
                     Console.WriteLine("Введено не корректное значение\n");
                 }
