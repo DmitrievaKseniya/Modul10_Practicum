@@ -10,42 +10,33 @@ namespace Task2
         public Calculator (ILogger logger)
         {
             Logger = logger;
-        }
+        } 
 
         public void Sum()
         {
-            int x = 0, y = 0;
-            while (true)
-            {
-                try
-                {
-                    Logger.Event("Введите первое число:");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    x = Int32.Parse(Console.ReadLine());
-                    break;
-                }
-                catch
-                {
-                    Logger.Error("Введено не корректное значение\n");
-                }
-            }
-
-            while (true)
-            {
-                try
-                {
-                    Logger.Event("Введите второе число:");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    y = Int32.Parse(Console.ReadLine());
-                    break;
-                }
-                catch
-                {
-                    Logger.Error("Введено не корректное значение\n");
-                }
-            }
-
+            int x = RequestNumber();
+            int y = RequestNumber();
             Logger.Event($"Сумма введенных чисел равна: {x + y}");
+        }
+
+        public int RequestNumber()
+        {
+            int number = 0;
+            while (true)
+            {
+                try
+                {
+                    Logger.Event("Введите число:");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    number = Int32.Parse(Console.ReadLine());
+                    break;
+                }
+                catch
+                {
+                    Logger.Error("Введено не корректное значение\n");
+                }
+            }
+            return number;
         }
     }
 }
